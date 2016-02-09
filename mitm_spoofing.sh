@@ -4,6 +4,7 @@
   apt-get install traceroute 	#if not installed. can be useful to get router ip (traceroute google.fr)
   apt-get install arp-scan	#know your network (or arp by default)
   apt-get install dsniff	#spoof & sniff
+  apt-get install driftnet	#
 
 #CORE Man-in-the-middle
   ifconfig -a | grep inet			#know your interface name & ip
